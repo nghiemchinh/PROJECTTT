@@ -21,10 +21,27 @@
                         <div class="element-header1 logo-header1 "><img src="img/images.png" alt="" width="150px"></div>
                     </th>
                     <th>
-                        <div class="search">
+                          <div class="search">
                             <label for="search"><i style="margin-left:13px;margin-right:5px;"
                                     class="fa-solid fa-magnifying-glass"></i></label>
-                            <input id="search" type="search" placeholder="Search">
+                            <input id="search" name="search" type="text" placeholder="Search" title="Type in a name">
+                            <ul id="myUL">
+                                <li><a href="#our doctors">Our Dortors</a></li>
+                                <li><a href="#Get in touch">Get in touch</a></li>
+                                <li><a href="#Feed Back To Us">Feed Back To Us</a></li>
+                                <li><a href="#Our Specialties">Our Specialties</a></li>
+                                <li><a href="#Our Services">Our Services</a></li>
+                                <li><a href="department/doctor.html">Doctor</a></li>
+                                <li><a href="department/register.html">checkout</a></li>
+                                <li><a href="html/facility.html#Facilities">Facilities</a></li>
+                                <li><a href="html/about.html#About Us">About Us</a></li>
+                                <li><a href="html/department.html#helpdesk">helpdesk</a></li>
+                                <li><a href="html/department.html#registration">registration</a></li>
+                                <li><a href="html/department.html#Doctor Schedule">Doctor Schedule</a></li>
+                                <li><a href="html/department.html#Billing and Accounts">Billing and Accounts</a></li>
+                                <li><a href="html/department.html#Care">Care</a></li>
+                                <li><a href="html/department.html#Other">Other</a></li>
+                            </ul>
                         </div>
                     </th>
                     <th>
@@ -120,7 +137,7 @@
                 <div class="content2">
                     <div class="text-center mar-top-bottom">
                         <div class="content-green">Care you can believe in</div>
-                        <h1 class="content-blue">Our Services</h1>
+                        <h1 class="content-blue" id="Our Services">Our Services</h1>
                     </div>
                     <div class="infor flex">
                         <div class="infor1-content2 text-center">
@@ -206,7 +223,7 @@
                 <div class="content3">
                     <div class="text-center mar-top-bottom">
                         <div class="content-green">Always Caring</div>
-                        <h1 class="content-blue">Our Specialties</h1>
+                        <h1 class="content-blue "  id="Our Specialties">Our Specialties</h1>
 
                     </div>
                     <div class="infor flex text-center">
@@ -272,7 +289,7 @@
                 <div class="content4">
                     <div class="text-center mar-top-bottom">
                         <div class="content-green">Trusted Care</div>
-                        <h1 class="content-blue">Our Doctors</h1>
+                        <h1 class="content-blue" id="Our Dortors">Our Doctors</h1>
 
                     </div>
                     <div class="infor flex-beteen">
@@ -309,7 +326,7 @@
                         <div class="infor-content4">
                             <div class=""><img src="img/doctor-img2.png" alt="" width="250px"></div>
                             <div class="discrip">
-                                <div class="">Doctor Nghiêm Minh Chính</div>
+                                <div class="">Doctor Nghiêm Văn Chính</div>
                                 <h3>Senior Doctor</h3>
                                 <span class=""><i class="fa-brands fa-invision"></i></span>
                                 <span class=""></i><i class="fa-brands fa-facebook"></i></span>
@@ -325,7 +342,7 @@
                 </div>
                 <div class="content5">
                     <div class="text-center mar-top-bottom">
-                        <div class="content-green">Better information, Better health</div>
+                        <div class="content-green" id="better">Better information, Better health</div>
                         <h1 class="content-blue">News</h1>
 
                     </div>
@@ -397,7 +414,7 @@
                 </div>
                 <div id="contact" class="content6">
                     <div class="text-center mar-top-bottom">
-                        <div class="content-green">Get in touch</div>
+                        <div class="content-green" id="Get in touch">Get in touch</div>
                         <h1 class="content-blue">Contact Us</h1>
 
                     </div>
@@ -447,7 +464,7 @@
                 <div class="content7">
                     <div class="text-center mar-top-bottom">
                         <div class="content-green">Let's Nature, Your feeling</div>
-                        <h1 class="content-blue">Feed Back To Us</h1>
+                        <h1 class="content-blue"  id="Feed Back To Us">Feed Back To Us</h1>
 
                     </div>
                     <div class="infor flex">
@@ -576,6 +593,32 @@
         function myFeedback() {
             alert("Feed back successfully!");
         }
+    </script>
+ <script>
+       function myFunction(e) {
+
+    let col = document.querySelectorAll('ul#myUL li a');
+
+    col.forEach(n => {
+
+        n.parentNode.style.display = 'none';
+        n.classList.remove('bold');
+
+
+        if (this.value.length > 0 && this.value.trim() != '' && n.textContent.toLowerCase().startsWith(this.value.toLowerCase())) {
+
+            n.parentNode.style.display = 'block';
+
+
+
+
+            n.innerHTML = `<span class="bold">${this.value}</span>` + n.textContent.substr(this.value.length)
+        }
+    });
+}
+
+   document.querySelector('input[name="search"]').addEventListener('keyup', myFunction);
+
     </script>
 </body>
 
