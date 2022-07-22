@@ -101,10 +101,28 @@
                         </div>
                     </th>
                     <th>
-                        <div class="search">
+                       <div class=" search">
                             <label for="search"><i style="margin-left:13px;margin-right:5px;"
                                     class="fa-solid fa-magnifying-glass"></i></label>
-                            <input id="search" type="search" placeholder="Search">
+                            <input id="search" name="search" type="text" placeholder="Search" title="Type in a name">
+                            <ul id="myUL">
+                                <li><a href="../index.html#our doctors">Our Dortors</a></li>
+                                <li><a href="../index.html#better">Better information, Better health</a></li>
+                                <li><a href="../index.html#Get in touch">Get in touch</a></li>
+                                <li><a href="../index.html#Feed Back To Us">Feed Back To Us</a></li>
+                                <li><a href="../index.html#Our Specialties">Our Specialties</a></li>
+                                <li><a href="../index.html#Our Services">Our Services</a></li>
+                                <li><a href="../department/doctor.html">Doctor</a></li>
+                                <li><a href="../department/register.html">checkout</a></li>
+                                <li><a href="facility.html#Facilities">Facilities</a></li>
+                                <li><a href="about.html#About Us">About Us</a></li>
+                                <li><a href="department.html#helpdesk">helpdesk</a></li>
+                                <li><a href="department.html#registration">registration</a></li>
+                                <li><a href="department.html#Doctor Schedule">Doctor Schedule</a></li>
+                                <li><a href="department.html#Billing and Accounts">Billing and Accounts</a></li>
+                                <li><a href="department.html#Care">Care</a></li>
+                                <li><a href="department.html#Other">Other</a></li>
+                            </ul>
                         </div>
                     </th>
                     <th>
@@ -416,6 +434,21 @@
                 s1.setAttribute('crossorigin', '*');
                 s0.parentNode.insertBefore(s1, s0);
             })();
+        </script>
+        
+           <script>
+          function myFunction(e) {
+    let col = document.querySelectorAll('ul#myUL li a');
+    col.forEach(n => {
+        n.parentNode.style.display = 'none';
+        n.classList.remove('bold');
+        if (this.value.length > 0 && this.value.trim() != '' && n.textContent.toLowerCase().startsWith(this.value.toLowerCase())) {
+            n.parentNode.style.display = 'block';
+            n.innerHTML = `<span class="bold">${this.value}</span>` + n.textContent.substr(this.value.length)
+        }
+    });
+}
+document.querySelector('input[name="search"]').addEventListener('keyup', myFunction);
         </script>
 
 </body>
