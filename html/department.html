@@ -32,10 +32,28 @@
                         </div>
                     </th>
                     <th>
-                        <div class="search">
+                         <div class="search">
                             <label for="search"><i style="margin-left:13px;margin-right:5px;"
                                     class="fa-solid fa-magnifying-glass"></i></label>
-                            <input id="search" type="search" placeholder="Search">
+                            <input id="search" name="search" type="text" placeholder="Search" title="Type in a name">
+                            <ul id="myUL">
+                                <li><a href="../index.html#doctors">Our Dortors</a></li>
+                                <li><a href="../index.html#better">Better information, Better health</a></li>
+                                <li><a href="../index.html#Get in touch">Get in touch</a></li>
+                                <li><a href="../index.html#Feed Back To Us">Feed Back To Us</a></li>
+                                <li><a href="../index.html#Our Specialties">Our Specialties</a></li>
+                                <li><a href="../index.html#Our Services">Our Services</a></li>
+                                <li><a href="../department/doctor.html">Doctor</a></li>
+                                <li><a href="../department/register.html">checkout</a></li>
+                                <li><a href="facility.html#Facilities">Facilities</a></li>
+                                <li><a href="about.html#About Us">About Us</a></li>
+                                <li><a href="#helpdesk">helpdesk</a></li>
+                                <li><a href="#registration">registration</a></li>
+                                <li><a href="#Doctor Schedule">Doctor Schedule</a></li>
+                                <li><a href="#Billing and Accounts">Billing and Accounts</a></li>
+                                <li><a href="#Care">Care</a></li>
+                                <li><a href="#Other">Other</a></li>
+                            </ul>
                         </div>
                     </th>
                     <th>
@@ -189,7 +207,7 @@
                     <div class="department-block mb-5">
                         <a href="../department/checkout.html"><img src="../department/images/service/service-1.jpg" alt="" class="img-fluid w-100"></a>
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Helpdesk</h4>
+                            <h4 class="mt-4 mb-2 title-color" id="helpdesk">Helpdesk</h4>
                             <p class="mb-4">Quầy trợ giúp.</p>
                             <a href="../department/checkout.html" class="read-more">Learn More <i
                                     class="icofont-simple-right ml-2"></i></a>
@@ -201,7 +219,7 @@
                     <div class="department-block mb-5">
                         <a href="../department/register.html"><img src="../department/images/service/service-2.jpg" alt="" class="img-fluid w-100"></a>
                         <div class="content">
-                            <h4 class="mt-4 mb-2  title-color">Registration</h4>
+                            <h4 class="mt-4 mb-2  title-color" id="registration">Registration</h4>
                             <p class="mb-4">Đăng ký khám bệnh.</p>
                             <a href="../department/register.html" class="read-more">Learn More <i
                                     class="icofont-simple-right ml-2"></i></a>
@@ -213,9 +231,9 @@
                     <div class="department-block mb-5">
                        <a href="../department/doctor.html"> <img src="../department/images/service/service-3.jpg" alt="" class="img-fluid w-100"></a>
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Doctor Schedule</h4>
+                            <h4 class="mt-4 mb-2 title-color" id="Doctor Schedule">Doctor Schedule</h4>
                             <p class="mb-4">Lịch trình bác sĩ</p>
-                            <a href="../department/doctor.html" class="read-more">Learn More <i
+                            <a href="../department/doctor.html" class="read-more" >Learn More <i
                                     class="icofont-simple-right ml-2"></i></a>
                         </div>
                     </div>
@@ -226,7 +244,7 @@
                     <div class="department-block  mb-5 mb-lg-0">
                         <a href="../department/checkout.html"><img src="../department/images/service/service-4.jpg" alt="" class="img-fluid w-100"></a>
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Billing and Accounts</h4>
+                            <h4 class="mt-4 mb-2 title-color" id="Billing and Accounts">Billing and Accounts</h4>
                             <p class="mb-4">Thanh toán tài khoản.</p>
                             <a href="../department/checkout.html" class="read-more">Learn More <i
                                     class="icofont-simple-right ml-2"></i></a>
@@ -238,7 +256,7 @@
                     <div class="department-block mb-5 mb-lg-0">
                         <a href=""><img src="../department/images/service/service-6.jpg" alt="" class="img-fluid w-100"></a>
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Care</h4>
+                            <h4 class="mt-4 mb-2 title-color" id="Care">Care</h4>
                             <p class="mb-4">Quan tâm.</p>
                             <a href="" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
                         </div>
@@ -249,7 +267,7 @@
                     <div class="department-block mb-5 mb-lg-0">
                         <a href=""><img src="../department/images/service/service-8.jpg" alt="" class="img-fluid w-100"></a>
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Other</h4>
+                            <h4 class="mt-4 mb-2 title-color" id="Other">Other</h4>
                             <p class="mb-4"></p>
                             <a href="" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
                         </div>
@@ -340,6 +358,21 @@
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
         })();
+    </script>
+
+   <script>
+       function myFunction(e) {
+    let col = document.querySelectorAll('ul#myUL li a');
+    col.forEach(n => {
+        n.parentNode.style.display = 'none';
+        n.classList.remove('bold');
+        if (this.value.length > 0 && this.value.trim() != '' && n.textContent.toLowerCase().startsWith(this.value.toLowerCase())) {
+            n.parentNode.style.display = 'block';
+            n.innerHTML = `<span class="bold">${this.value}</span>` + n.textContent.substr(this.value.length)
+        }
+    });
+}
+document.querySelector('input[name="search"]').addEventListener('keyup', myFunction);
     </script>
 </body>
 
