@@ -191,7 +191,6 @@ a {
     text-decoration: none;
     font-size: 15px;
     color: black;
-    display: block
 }
 
 #myUL li a:hover:not(.header) {
